@@ -72,14 +72,15 @@ class ApiProductController extends AbstractController
             if (strcmp($currency, Product::CURRENCY_EUR) !== 0 && strcmp($currency, Product::CURRENCY_USD) !== 0) {
                 return $this->getApiErrorJsonResponse(array('message' => $translator->trans('message.error.invalidFilter.product', $parameters = array('{{ currency }}' => $currency)) ), $status = Response::HTTP_BAD_REQUEST);
             }
+            $oldCurrency = (strcmp($currency, Product::CURRENCY_EUR) === 0) ? Product::CURRENCY_USD : Product::CURRENCY_EUR;
+            $rates = $this->getCurrencyConversion($oldCurrency, $currency, $client);
             $currencyConversion = true;
         }
         $data = [];
         $products = $productRepository->findAllByFeatured();
         foreach ($products as $product) {
             if ($currencyConversion && strcmp($product->getCurrency(), $currency) !== 0) {
-                $price = $this->getPriceConversion($product, $currency, $client);
-                $product->setPrice($price)->setCurrency($currency);
+                $product->setPrice($rates * $product->getPrice())->setCurrency($currency);
             }
             $data[] = $product->toArray();
         }
@@ -249,18 +250,18 @@ class ApiProductController extends AbstractController
     }
 
     /**
-     * @param Product $product
+     * @param string $originalCurrency
      * @param string $currency
      * @param HttpClientInterface $client
      * @return float
      * @throws ExceptionInterface
      */
-    private function getPriceConversion(Product $product, string $currency, HttpClientInterface $client): float
+    private function getCurrencyConversion(string $originalCurrency, string $currency, HttpClientInterface $client): float
     {
-        $response = $client->request('GET', $this->getExchangeRatesApiUrl($originalCurrency = $product->getCurrency(), $currency));
+        $response = $client->request('GET', $this->getExchangeRatesApiUrl($originalCurrency, $currency));
         $content = $response->toArray();
         $rates = isset($content['rates']) && isset($content['rates'][$currency]) ? $content['rates'][$currency] : 1;
-        return floatval($product->getPrice() * $rates);
+        return floatval($rates);
     }
 
     /**
