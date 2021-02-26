@@ -1,0 +1,25 @@
+message:
+    assert:
+        choice:
+            currency: El valor {{ value }} introducido para el campo currency es incorrecto, ya que solamente están permitidos los valores "EUR" o "USD".
+        length:
+            brand:
+                maxMessage: El valor del campo brand es demasiado grande, ya que solamente permite una longitud de {{ limit }} caracteres o menos.
+            name:
+                maxMessage: El valor del campo name es demasiado grande, ya que solamente permite una longitud de {{ limit }} caracteres o menos.
+            serialNumber:
+                maxMessage: El valor del campo serialNumber es demasiado grande, ya que solamente permite una longitud de {{ limit }} caracteres o menos.
+        notBlank:
+            currency: El campo currency no puede estar vacío.
+            name: El campo name no puede estar vacío.
+            price: El campo price no puede estar vacío.
+        range:
+            price:
+                minMessage: El valor del campo price debe ser igual o superior a {{ limit }}.
+        type:
+            price: El valor del campo price debe ser de tipo {{ type }}.
+    unique:
+        category: El name {{ value }} ya se usó previamente para otra categoría y este valor debe ser único.
+        product:
+            combined: El name {{ value }} ya se usó previamente en otro producto dentro de la misma categoría y ambos valores deben ser únicos.
+            serialNumber: El serialNumber {{ value }} ya se usó previamente para otro producto y este valor debe ser único.

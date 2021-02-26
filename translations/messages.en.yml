@@ -1,0 +1,32 @@
+message:
+    error:
+        invalidContentType: Data content type is invalid. The only valid option is "application/json"!
+        invalidFilter:
+            product: Currency filter {{currency }} is invalid. The only options allowed are "USD" for dollars and "EUR" for euros!
+        new:
+            category: Category not created!
+            product: Product not created!
+        notFound:
+            category: Category not found {{ id }}!
+            product: Product not found {{ id }}!
+        update:
+            category: Category with ID {{ id }} not updated!
+            product: Product with ID {{ id }} not updated!
+    success:
+        delete:
+            category: Category with ID {{ id }} deleted successfully.
+            product: Product with ID {{ id }} deleted successfully.
+        index:
+            category: Lists all category entities.
+            product: Lists all product entities.
+            productFeatured: Lists all product featured entities.
+            productFeaturedWithConversion: Lists all product featured entities, showing all prices in {{currency}}.
+        new:
+            category: Category with ID {{ id }} created successfully.
+            product: Product with ID {{ id }} created successfully.
+        show:
+            category: Displays information for category with ID {{ id }}.
+            product: Displays information for product with ID {{ id }}.
+        update:
+            category: Category with ID {{ id }} updated successfully.
+            product: Product with ID {{ id }} updated successfully.

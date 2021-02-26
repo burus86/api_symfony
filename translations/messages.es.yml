@@ -1,0 +1,32 @@
+message:
+    error:
+        invalidContentType: El tipo de contenido de los datos enviados es incorrecto, ya que debe ser de tipo "application/json"!
+        invalidFilter:
+            product: El filtro currency {{currency }} es incorrecto, ya que solamente se permiten los valores "USD" para dólares y "EUR" para euros!
+        new:
+            category: La categoría no ha sido creada!
+            product: El producto no ha sido creado!
+        notFound:
+            category: La categoría con ID {{ id }} no existe!
+            product: El producto con ID {{ id }} no existe!
+        update:
+            category: La categoría con ID {{ id }} no ha sido actualizada!
+            product: El producto con ID {{ id }} no ha sido actualizado!
+    success:
+        delete:
+            category: Eliminado la categoría con ID {{ id }} correctamente.
+            product: Eliminado el producto con ID {{ id }} correctamente.
+        index:
+            category: Listado de categorías.
+            product: Listado de productos.
+            productFeatured: Listado de productos destacados.
+            productFeaturedWithConversion: Listado de productos destacados, mostrando todos los precios en {{ currency }}.
+        new:
+            category: Añadido una categoría con ID {{ id }} correctamente.
+            product: Añadido un producto con ID {{ id }} correctamente.
+        show:
+            category: Información acerca de la categoría con ID {{ id }}.
+            product: Información acerca del producto con ID {{ id }}.
+        update:
+            category: Actualizado la categoría con ID {{ id }} correctamente.
+            product: Actualizado el producto con ID {{ id }} correctamente.

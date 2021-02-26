@@ -1,0 +1,25 @@
+message:
+    assert:
+        choice:
+            currency: The value {{ value }} you selected for currency field is not a valid choice. The only valid options are "EUR" o "USD".
+        length:
+            brand:
+                maxMessage: Brand value is too long. It should have {{ limit }} characters or less.
+            name:
+                maxMessage: Name value is too long. It should have {{ limit }} characters or less.
+            serialNumber:
+                maxMessage: Serial number value is too long. It should have {{ limit }} characters or less.
+        notBlank:
+            currency: Currency field should not be blank.
+            name: Name field should not be blank.
+            price: Price field should not be blank.
+        range:
+            price:
+                minMessage: Price value should be {{ limit }} or more.
+        type:
+            price: Price value should be of type {{ type }}.
+    unique:
+        category: Name {{ value }} is already used and should be unique.
+        product:
+            combined: Name {{ value }} is already used in another product en that cateogry and both values should be unique.
+            serialNumber: Serial number {{ value }} is already used and should be unique.
