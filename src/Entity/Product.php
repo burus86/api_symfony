@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use ApiPlatform\Core\Annotation\ApiResource;
 use App\Repository\ProductRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
@@ -12,6 +13,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  * @ORM\Table(name="product", uniqueConstraints={@ORM\UniqueConstraint(columns={"name", "category_id"})})
  * @UniqueEntity(fields={"name", "category"}, message="message.unique.product.combined")
  * @UniqueEntity(fields={"serialNumber"}, message="message.unique.product.serialNumber")
+ * @ApiResource(routePrefix="api/v1")
  */
 class Product extends BaseEntity
 {

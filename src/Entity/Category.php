@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use ApiPlatform\Core\Annotation\ApiResource;
 use App\Repository\CategoryRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
@@ -11,6 +12,7 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
  * @ORM\Entity(repositoryClass=CategoryRepository::class)
  * @ORM\Table(name="category", uniqueConstraints={@ORM\UniqueConstraint(columns={"name"})})
  * @UniqueEntity(fields={"name"}, errorPath="title", message="message.unique.category")
+ * @ApiResource(routePrefix="api/v1")
  */
 class Category extends BaseEntity
 {

@@ -6,7 +6,6 @@ use App\Entity\Category;
 use App\Repository\CategoryRepository;
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\ORMException;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -18,9 +17,9 @@ use Symfony\Contracts\Translation\TranslatorInterface;
  * Class ApiCategoryController
  * @package App\Controller\Api
  *
- * @Route("/api/category")
+ * @Route("categories")
  */
-class ApiCategoryController extends AbstractController
+class ApiCategoryController extends ApiBaseController
 {
     use ApiBaseControllerTrait;
 

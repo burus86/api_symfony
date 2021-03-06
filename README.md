@@ -20,23 +20,26 @@ Ejecutar por consola los comandos:
 Para más información, consultar la guía oficial: https://symfony.com/doc/4.4/setup/symfony_server.html
 
 ### 5.  Probar métodos de la API
-Descargar el programa **`Insomnia Core`** desde https://insomnia.rest/download/ y posteriormente importar el fichero JSON **`/examples_api.json`** que se incluye con el proyecto, que trae un ejemplo de cada petición añadida a la API.
+Acceder a la URL http://localhost:8000/ para ver todos los métodos definidos en la API. 
+
+**Métodos de la entidad Category:**
+
+    [GET]       /api/v1/categories/
+    [POST]      /api/v1/categories/
+    [GET]       /api/v1/categories/3
+    [PUT]       /api/v1/categories/3
+    [DELETE]    /api/v1/categories/3
 
 **Métodos de la entidad Product:**
 
-    [GET] http://localhost:8000/api/product/
-    [POST] http://localhost:8000/api/product/
-    [GET] http://localhost:8000/api/product/12
-    [PUT] http://localhost:8000/api/product/12
-    [DELETE] http://localhost:8000/api/product/12
-    [GET] http://localhost:8000/api/product/12/delete
-    [GET] http://localhost:8000/api/product/featured
-    [GET] http://localhost:8000/api/product/featured?currency=EUR
-    [GET] http://localhost:8000/api/product/featured?currency=USD
-**Métodos de la entidad Category:**
+    [GET]       /api/v1/products/
+    [POST]      /api/v1/products/
+    [GET]       /api/v1/products/12
+    [PUT]       /api/v1/products/12
+    [DELETE]    /api/v1/products/12
+    [GET]       /api/v1/products/12/delete
+    [GET]       /api/v1/products/featured
+    [GET]       /api/v1/products/featured?currency=EUR
+    [GET]       /api/v1/products/featured?currency=USD
 
-    [GET] http://localhost:8000/api/category/
-    [POST] http://localhost:8000/api/category/
-    [GET] http://localhost:8000/api/category/3
-    [PUT] http://localhost:8000/api/category/3
-    [DELETE] http://localhost:8000/api/category/3
+Descargar el programa **`Insomnia Core`** desde https://insomnia.rest/download/ y posteriormente importar el fichero JSON **`/examples_api.json`** que se incluye con el proyecto, que trae un ejemplo de cada petición añadida a la API.

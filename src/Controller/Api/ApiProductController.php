@@ -21,9 +21,9 @@ use Symfony\Contracts\Translation\TranslatorInterface;
  * Class ApiProductController
  * @package App\Controller\Api
  *
- * @Route("/api/product")
+ * @Route("products")
  */
-class ApiProductController extends AbstractController
+class ApiProductController extends ApiBaseController
 {
     use ApiBaseControllerTrait;
 
