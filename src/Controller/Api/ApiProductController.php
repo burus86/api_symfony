@@ -6,8 +6,8 @@ use App\Entity\Category;
 use App\Entity\Product;
 use App\Repository\ProductRepository;
 use Doctrine\ORM\EntityManager;
+use Doctrine\ORM\NonUniqueResultException;
 use Doctrine\ORM\ORMException;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -80,7 +80,10 @@ class ApiProductController extends ApiBaseController
         $products = $productRepository->findAllByFeatured();
         foreach ($products as $product) {
             if ($currencyConversion && strcmp($product->getCurrency(), $currency) !== 0) {
-                $product->setPrice($rates * $product->getPrice())->setCurrency($currency);
+                $product->setCurrency($currency);
+                if (isset($rates)) {
+                    $product->setPrice($rates * $product->getPrice());
+                }
             }
             $data[] = $product->toArray();
         }
@@ -105,6 +108,7 @@ class ApiProductController extends ApiBaseController
      * @param ValidatorInterface $validator
      * @param TranslatorInterface $translator
      * @return JsonResponse
+     * @throws NonUniqueResultException
      */
     public function new(Request $request, ValidatorInterface $validator, TranslatorInterface $translator): JsonResponse
     {
@@ -162,6 +166,7 @@ class ApiProductController extends ApiBaseController
      * @param ValidatorInterface $validator
      * @param TranslatorInterface $translator
      * @return JsonResponse
+     * @throws NonUniqueResultException
      */
     public function update(int $id, Request $request, ProductRepository $productRepository, ValidatorInterface $validator, TranslatorInterface $translator): JsonResponse
     {
@@ -220,6 +225,7 @@ class ApiProductController extends ApiBaseController
      * @param Product $product
      * @param Request $request
      * @return Product
+     * @throws NonUniqueResultException
      */
     private function saveEntity(Product $product, Request $request): Product
     {
