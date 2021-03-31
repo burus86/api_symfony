@@ -21,7 +21,7 @@ use Symfony\Contracts\Translation\TranslatorInterface;
  * Class ApiProductController
  * @package App\Controller\Api
  *
- * @Route("products")
+ * @Route("/api/v1/products")
  */
 class ApiProductController extends ApiBaseController
 {

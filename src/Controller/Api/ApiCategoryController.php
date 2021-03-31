@@ -17,7 +17,7 @@ use Symfony\Contracts\Translation\TranslatorInterface;
  * Class ApiCategoryController
  * @package App\Controller\Api
  *
- * @Route("categories")
+ * @Route("/api/v1/categories")
  */
 class ApiCategoryController extends ApiBaseController
 {
